@@ -97,6 +97,12 @@
 .fa-check-square-o:before {
   content: "\f046";
 }
+.fa-pencil-square-o:before {
+  content: "\f044";
+}
+.fa-pencil-square:before {
+  content: "\f14b";
+}
 /****crudApp css****/
  .cr-quote-div {
   border-radius: 5px;
@@ -108,4 +114,13 @@
   color: red;
   cursor: pointer; 
   margin: 0 10px 0 5px;
+}
+.cr-pencil-quo {
+  color: blue;
+  cursor: pointer; 
+  margin: 3px 10px 0 5px;
+}
+.cr-sel-quo-all {
+  height: 20px;
+  width: 20px;
 }

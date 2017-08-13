@@ -4,26 +4,42 @@
       <meta charset="UTF-8">
       <title>MY APP</title>
      <link rel="stylesheet" type="text/css" href="/css/style.css">
-     <script src="/js/script.js"></script>
+     <script src="/js/script.js"></script>`
     </head>
     <body>
       <h1>May Node and Express be with you.</h1>
-      <form action="/quotes" method="POST">
+      <form action="/saveQuotes" method="POST">
         <input type="text" placeholder="Enter character name" name="name" required="required" pattern=".+[a-zA-Z\d]">
         <input type="text" placeholder="Enter dialogues" name="quote" required="required">
         <button type="submit">Submit</button>
       </form>
       <div>
-       <input type="checkbox" class="j-sel-quo-all" onclick="toggleAllCheckbox(this);" /> Select All
+        <input type="checkbox" class="j-sel-quo-all cr-sel-quo-all" onclick="toggleAllCheckbox(this);" />
+        <span class="j-del-sel-quo cr-del-quo fa-2x" onclick="delSelected();">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </span>
        </div>
-      <div class="cr-quote-div">
+      <div class="cr-quote-div j-quote-div" editing="false">
         <% for(var i=0; i<quotes.length; i++) {%>
-          <div class="quote" style="width: 100%;">
-            <input type="checkbox" class="j-sel-quo" objid="<%= quotes[i]._id %>"/>
-            <span class="j-del-quo cr-del-quo">
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
-            </span>
-            <b><%= quotes[i].name %></b> : <span>" <%= quotes[i].quote %> "</span>
+          <div class="quote j-quote" style="width: 100%; display: flex;" objid="<%= quotes[i]._id %>" >
+            <div style="width: 7%; float: left;">
+              <input type="checkbox" class="j-sel-quo" onclick="handleSelAll();" objid="<%= quotes[i]._id %>" />
+              <span class="j-del-quo cr-del-quo" onclick="delThis(this)" objid="<%= quotes[i]._id %>" >
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div style="width: 90%; display: flex;">
+              <span class="j-pencil-quo cr-pencil-quo" onclick="" >
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </span>
+              <div class="j-edit-quo j-edit-name" onclick="toggleEditThis(this)" onkeydown="editQuoReady(event);"
+               onblur="resetEditQuo(this);" objid="<%= quotes[i]._id %>"
+               contenteditable="false" olddata="<%= quotes[i].name %>"><%= quotes[i].name %></div>
+               &nbsp;:&nbsp;
+              "<div class="j-edit-quo j-edit-quote" onclick="toggleEditThis(this)" onkeydown="editQuoReady(event);"
+               onblur="resetEditQuo(this);" objid="<%= quotes[i]._id %>"
+               contenteditable="false" olddata="<%= quotes[i].quote %>"><%= quotes[i].quote %></div>"
+            </div>
           </div>
         <% } %>
       </div>
