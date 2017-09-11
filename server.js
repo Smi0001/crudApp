@@ -1,4 +1,4 @@
-/*
+/* @author: Smi 
  * server bna rele h
  * After MongoDB connected ho rele h
  */
@@ -7,13 +7,17 @@ const app = express();
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
+var configs = require('./config');//requiring local modeles
+var url = configs.url;
+
+var applicationPort = process.env.PORT || configs.applicationPort;
+console.log('MongoDB url: ' + url, 'port:' + applicationPort);
 var db;
-var url = 'mongodb://smi:smi1234@ds153392.mlab.com:53392/filmy-dialogues';
 MongoClient.connect(url, (err, database) => {
   if (err) return console.log(err)
   db = database;
-  app.listen(3000, () => {
-    console.log('currently listening on 3000');
+  app.listen(applicationPort, () => {
+    console.log('currently listening on ' + applicationPort);
   });
 });
 
