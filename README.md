@@ -76,10 +76,7 @@ $ ==> command to be executed
 ```
 ~ 2017-09-11T08:03:01.099744+00:00 app[api]: Initial release by user shammihans1@gmail.com
 ~ 2017-09-11T08:03:01.099744+00:00 app[api]: Release v1 created by user shammihans1@gmail.com
-~ 2017-09-11T08:03:01.504872+00:00 app[api]: Release v2 created by user shammihans1@gmail.com
-~ 2017-09-11T08:03:01.504872+00:00 app[api]: Enable Logplex by user shammihans1@gmail.com
-~ 2017-09-11T08:03:09.123926+00:00 heroku[router]: at=info code=H81 desc="Blank app" method=GET path="/%20%7C" host=safe-sierra-85869.herokuapp.com request_id=71ad8233-4a62-416b-b630-43c47fdfe428 fwd="103.215.198.142" dyno= connect= service= status=502 bytes= protocol=https
-~ 2017-09-11T08:03:10.222545+00:00 heroku[router]: at=info code=H81 desc="Blank app" method=GET path="/%20%7C" host=safe-sierra-85869.herokuapp.com request_id=06096429-693b-4249-a02a-0e505830e6a4 fwd="103.215.198.142" dyno= connect= service= status=502 bytes= protocol=https
+...
 ~ 2017-09-11T08:04:28.000000+00:00 app[api]: Build started by user shammihans1@gmail.com
 ~ 2017-09-11T08:04:56.996307+00:00 app[api]: Release v3 created by user shammihans1@gmail.com
 ~ 2017-09-11T08:04:57.011824+00:00 app[api]: Scaled to web@1:Free by user shammihans1@gmail.com
