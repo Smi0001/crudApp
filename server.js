@@ -23,7 +23,7 @@ MongoClient.connect(url, (err, database) => {
 
 app.set('view engine', 'ejs')
 .use(bodyParser.urlencoded({extended: true}))
-.use(express.static(__dirname + '/static'))
+.use('/static',express.static(__dirname + '/static'))
 .get('/', (req, res) => {   
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log('--->Error->',err);
