@@ -1,7 +1,7 @@
 /* ready function */
 (function(){
 	console.log('script read');
-	//bodyClicks();
+	bodyClicks();
 })();
 function editQuoReady(e) {
 	if (e.which == 13 || e.keyCode == 13) {
@@ -123,6 +123,8 @@ function resetEditQuo(_this) {
 }
 
 function updateQuo(_objId) {
+	var editLoader = document.querySelector('.j-edit-loader[objid="' + _objId + '"]');
+	editLoader.style.display = 'block';
 	var url = "updateQuote";
 	var _name = document.querySelector('.j-edit-name[objid="' + _objId + '"]').textContent;
 	var _quote = document.querySelector('.j-edit-quote[objid="' + _objId + '"]').textContent;
@@ -132,14 +134,19 @@ function updateQuo(_objId) {
 		name.attributes.olddata.value = name.innerHTML;
 		var quote = document.querySelector('.j-edit-quote[objid="' + _objId + '"]');
 		quote.attributes.olddata.value = quote.innerHTML;
+		editLoader.style.display = 'none';
 	};
 	var errorCallback = function() {
 		var name = document.querySelector('.j-edit-name[objid="' + _objId + '"]');
 		name.innerHTML = name.attributes.olddata.value;
 		var quote = document.querySelector('.j-edit-quote[objid="' + _objId + '"]');
 		quote.innerHTML = quote.attributes.olddata.value;
+		editLoader.style.display = 'none';
 	};
 	requestQuoDB(url, params, successCallback, errorCallback);
 }
-
+function focusOn(_objId) {
+	var characterName = document.querySelector('.j-edit-name[objid="' + _objId + '"]');
+	characterName.click();//clicking makes it editable, that's why not used focus()
+}
 

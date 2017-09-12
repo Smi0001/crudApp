@@ -7,12 +7,13 @@
   font-style: normal;
 }
 .fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
 }
 /* makes the font 33% larger relative to the icon container */
 .fa-lg {
@@ -103,6 +104,13 @@
 .fa-pencil-square:before {
   content: "\f14b";
 }
+.fa-spinner:before{content:"\f110"}
+.fa-spin{
+	-webkit-animation:fa-spin 0.3s infinite linear;
+	animation:fa-spin 0.3s infinite linear;
+}
+@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}
+
 /****crudApp css****/
  .cr-quote-div {
   border-radius: 5px;
@@ -115,6 +123,10 @@
   cursor: pointer; 
   margin: 0 10px 0 5px;
 }
+.cr-del-quo.disabled {
+	color: gray;
+	cursor: default;
+}
 .cr-pencil-quo {
   color: blue;
   cursor: pointer; 
@@ -124,3 +136,7 @@
   height: 20px;
   width: 20px;
 }
+.hide {display: none;}
+.block {display: block;}
+.edit-loader {left: 70px; position: absolute;}
+.editable:focus {color: #4040a3;}
