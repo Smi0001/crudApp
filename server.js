@@ -60,4 +60,11 @@ app.set('view engine', 'ejs')
   });
 });
 
+app.post('/test-slack-app', (req, res) => {
+  db.collection('testing').save(req.body, (err, result) => {
+    if (err) return console.log('--->Error->',err);
+    console.log(req.body, '--->saved to database');
+//     res.redirect('/');
+  });
+});
 console.log('The server started well TAAU :p');
