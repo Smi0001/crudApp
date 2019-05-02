@@ -60,11 +60,13 @@ app.set('view engine', 'ejs')
   });
 });
 
-app.post('/test-slack-app', (req, res) => {
+app.get('/testing', (req, res) => {   
+    res.send({success: true, message: 'URL is active'});
+}).post('/test-slack-app', (req, res) => {
   db.collection('testing').save(req.body, (err, result) => {
     if (err) return console.log('--->Error->',err);
     console.log(req.body, '--->saved to database');
-    res.send({success: true, message: 'URL is active'});
+    res.redirect('/testing');
   });
 });
 console.log('The server started well TAAU :p');
