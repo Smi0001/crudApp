@@ -25,7 +25,7 @@
           <div class="quote j-quote" style="width: 100%; display: flex;" objid="<%= quotes[i]._id %>" >
             <div style="width: 7%; float: left;">
 				<% if (i < 5) { %>
-	              <input type="checkbox" class="" disabled="disabled" onclick="handleSelAll();" objid="<%= quotes[i]._id %>" />
+	              <input type="checkbox" class="" disabled="disabled" objid="<%= quotes[i]._id %>" />
 	              <span class="cr-del-quo disabled" objid="<%= quotes[i]._id %>" >
 	                <i class="fa fa-trash-o" aria-hidden="true"></i>
 	              </span>
@@ -37,6 +37,19 @@
 				<% } %>
             </div>
             <div style="width: 90%; display: flex;">
+			<% if (i < 5) { %>
+				<span class="j-edit-loader hide edit-loader"  objid="<%= quotes[i]._id %>"><i class="fa fa-spinner fa-spin"></i></span>
+				<span class="j-pencil-quo cr-pencil-quo disabled" >
+				    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</span>
+				<div class="j-edit-quo j-edit-name editable" objid="<%= quotes[i]._id %>"
+				 olddata="<%= quotes[i].name %>"><%= quotes[i].name %></div>
+				 &nbsp;:&nbsp;
+				"<div class="j-edit-quo j-edit-quote editable" objid="<%= quotes[i]._id %>"
+				 olddata="<%= quotes[i].quote %>"><%= quotes[i].quote %></div>"
+				   
+	       		<% } else { %>
+			
 				<span class="j-edit-loader hide edit-loader"  objid="<%= quotes[i]._id %>"><i class="fa fa-spinner fa-spin"></i></span>
 				<span class="j-pencil-quo cr-pencil-quo" onclick="focusOn('<%= quotes[i]._id %>')">
 				    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -48,6 +61,7 @@
 				"<div class="j-edit-quo j-edit-quote editable" onclick="toggleEditThis(this)" onkeydown="editQuoReady(event);"
 				 onblur="resetEditQuo(this);" objid="<%= quotes[i]._id %>"
 				   contenteditable="false" olddata="<%= quotes[i].quote %>"><%= quotes[i].quote %></div>"
+			<% } %>
 				</div>
 			</div>
         <% } %>
