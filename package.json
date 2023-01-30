@@ -17,11 +17,14 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
     "ejs": "^2.5.7",
-    "express": "^4.15.3",
-    "mongodb": "^2.2.30"
+    "express": "^4.18.1",
+    "mongodb": "^4.9.1"
   },
   "devDependencies": {
+    "mongosh": "^1.5.4",
     "nodemon": "^1.11.0"
   }
 }

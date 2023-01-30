@@ -11,14 +11,14 @@ var configs = require('./config');//requiring local modeles
 var url = configs.url;
 
 var applicationPort = process.env.PORT || configs.applicationPort;
-console.log('MongoDB url: ' + url, 'port:' + applicationPort);
 var db;
-MongoClient.connect(url, (err, database) => {
-  if (err) return console.log(err)
-  db = database;
-  app.listen(applicationPort, () => {
-    console.log('currently listening on ' + applicationPort);
+app.listen(applicationPort, () => {
+  MongoClient.connect(url, (err, database) => {
+    if (err) return console.log(err)
+    db = database;
+    console.log('MongoDB url: ' + url, 'port:' + applicationPort);
   });
+  console.log('currently listening on ' + applicationPort);
 });
 
 app.set('view engine', 'ejs')
